@@ -1,6 +1,21 @@
 .head{
   height: 100px;
   font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all{
+  padding: 0;
+}
+
+.sidebar{
+  width: 12%;
+}
+
+.calendar{
+  margin-top: 10px;
 }
 
 
