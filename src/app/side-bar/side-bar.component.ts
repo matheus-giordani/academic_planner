@@ -38,17 +38,17 @@ export class SideBarComponent {
         icon: 'pi pi-fw pi-calendar',
       },
       {
-        label: 'inserir desciplina',
+        label: 'Inserir Disciplina',
         icon: 'pi pi-fw pi-book',
         styleClass: 'mt-3',
       },
       {
-        label: 'Adicionar assunto',
+        label: 'Adicionar Assunto',
         icon: 'pi pi-fw pi-bookmark',
         styleClass: 'mt-3',
       },
       {
-        label: 'ToDo list',
+        label: 'ToDo List',
         icon: 'pi pi-fw pi-check-square',
         styleClass: 'mt-3',
       },
