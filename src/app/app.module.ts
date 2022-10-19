@@ -4,16 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
+
 import {TieredMenuModule} from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
+import { Error404Component } from './error404/error404.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideBarComponent
+    Error404Component,
+    
   ],
   imports: [
     BrowserModule,
