@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'saira regular';
+  src: url('assets/font/saira-condensedregular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'saira extrabold';
+  src: url('assets/font/saira-condensedextrabold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'saira bold';
+  src: url('assets/font/saira-condensedbold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'saira light';
+  src: url('assets/font/saira-condensedlight.ttf') format('truetype');
+}
+
+* {
+  font-family: saira regular;
+}
