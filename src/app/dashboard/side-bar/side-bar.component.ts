@@ -10,18 +10,18 @@ export class SideBarComponent {
   constructor() {}
 
   items: MenuItem[];
-  desciplinas: MenuItem[];
+  disciplinas: MenuItem[];
   teste: MenuItem[];
 
   ngOnInit() {
-    this.desciplinas = [
+    this.disciplinas = [
       {
         label: 'Programação 1',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
       },
       {
-        label: 'Algebra Linear',
+        label: 'Álgebra Linear',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
       },
@@ -34,7 +34,7 @@ export class SideBarComponent {
 
     this.items = [
       {
-        label: 'Meu Calendario',
+        label: 'Meu Calendário',
         icon: 'pi pi-fw pi-calendar',
       },
       {
@@ -53,11 +53,11 @@ export class SideBarComponent {
         styleClass: 'mt-3',
       },
       {
-        label: 'Desciplinas',
+        label: 'Disciplinas',
         icon: 'pi pi-fw pi-check-square',
         styleClass: 'mt-3 ',
         style: {"min-height":"100vh" },
-        items: this.desciplinas,
+        items: this.disciplinas,
       },
       {separator:true},
       {
