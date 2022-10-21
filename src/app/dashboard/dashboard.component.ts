@@ -6,7 +6,7 @@ defineFullCalendarElement();
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
@@ -16,10 +16,9 @@ export class DashboardComponent implements OnInit {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,dayGridWeek,dayGridDay'
-    }
+      right: 'dayGridMonth,dayGridWeek,dayGridDay',
+    },
   };
-
   ngOnInit(): void {
 
   }
