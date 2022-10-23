@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  endpointMessageError: string
+
+  constructor(private router: Router, private formBuilder: FormBuilder, private auth: LoginService) { }
+  formAuth: FormGroup = this.formBuilder.group({
+    email: [null, [Validators.required, Validators.email]],
+    senha: [null, [Validators.required]]
+  })
 
   ngOnInit(): void {
+    console.log('entrou')
   }
 
+  redirect() {
+    this.router.navigate([['/', 'dashboard']])
+  }
+
+  submitForm() {
+    if (this.formAuth.valid) {
+      this.auth.sign({ email: this.formAuth.value.email, senha: this.formAuth.value.senha }).subscribe(
+        {
+          next: res => res,
+          error: err => this.endpointMessageError = err
+        });
+    }
+
+
+  }
 }
+
+
+

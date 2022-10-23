@@ -19,18 +19,23 @@
               </div>
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center justify-content-center col-login">
-              <form class="form">
+              <form class="form" [formGroup]="formAuth" (ngSubmit)="submitForm()">
                 <h3 class="login-title">Login</h3>
                 <div class="mb-3">
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
+                  <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                  <input type="password" formControlName="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 </div>
                 <div class="link-redefinir">
                   <a href="">Esqueci minha senha</a>
                 </div>
-                <button type="submit" class="btn btn-primary btn-login">Login</button>
+                <div class="mb-4">
+                  <button type="submit" on  class="btn btn-primary btn-login" [disabled]="formAuth.invalid">Login</button>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="endpointMessageError">
+                  {{endpointMessageError}}
+                </div>
               </form>
             </div>
           </div>

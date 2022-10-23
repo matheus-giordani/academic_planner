@@ -12,6 +12,11 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
 import { CalendarComponent } from './calendar/calendar.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+
 
 
 @NgModule({
@@ -26,7 +31,14 @@ import { CalendarComponent } from './calendar/calendar.component';
     TieredMenuModule,
     ButtonModule,
     FormsModule,
-    
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+
+
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
