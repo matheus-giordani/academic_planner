@@ -11,12 +11,14 @@ import { DashboardComponent } from './dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SideBarComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
