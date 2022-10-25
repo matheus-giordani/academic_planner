@@ -9,7 +9,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   items: MenuItem[];
   disciplinas: MenuItem[];
@@ -67,31 +67,31 @@ export class SideBarComponent {
         label: 'Disciplinas',
         icon: 'pi pi-fw pi-check-square',
         styleClass: 'mt-3 ',
-        style: {"min-height":"100vh" },
+        style: { "min-height": "100vh" },
         items: this.disciplinas,
       },
-      {separator:true},
+      { separator: true },
       {
-        label:"Aluno",
+        label: "Aluno",
         icon: "pi pi-fw pi-user",
         routerLink: ['user']
-    }
+      }
     ];
 
   }
 
-  teste1(){
-    console.log("funfoou")
+  teste1() {
+
   }
 
-  insereDisciplina(idDisciplina: string = '1', nomeDisciplina: string = 'calculo 2' ){
-    console.log(event)
+  insereDisciplina(idDisciplina: string = '1', nomeDisciplina: string = 'calculo 2') {
+
     const newDisciplina = {
 
-        label: nomeDisciplina,
-        icon: 'pi pi-fw pi-bars',
-        styleClass: 'mt-3',
-        routerLink: ['disciplina',idDisciplina]
+      label: nomeDisciplina,
+      icon: 'pi pi-fw pi-bars',
+      styleClass: 'mt-3',
+      routerLink: ['disciplina', idDisciplina]
     };
     this.disciplinas.push(newDisciplina)
 

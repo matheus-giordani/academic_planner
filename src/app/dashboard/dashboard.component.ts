@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -11,7 +12,7 @@ import { LoginService } from '../login/login/login.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private auth: LoginService) { }
+  constructor(private auth: LoginService, private router: Router) { }
 
 
   ngOnInit(): void {
