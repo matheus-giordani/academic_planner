@@ -1,4 +1,6 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,13 +9,16 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent {
-  constructor() {}
+  constructor(private router: Router) {}
 
   items: MenuItem[];
   disciplinas: MenuItem[];
   teste: MenuItem[];
 
+
   ngOnInit() {
+
+
     this.disciplinas = [
       {
         label: 'Programação 1',
@@ -21,9 +26,11 @@ export class SideBarComponent {
         styleClass: 'mt-3',
       },
       {
+        id: '1',
         label: 'Álgebra Linear',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
+
       },
       {
         label: 'Banco de Dados',
@@ -61,10 +68,41 @@ export class SideBarComponent {
       },
       {separator:true},
       {
+        label:"insere",
+        icon: "pi pi-fw pi-user",
+        escape:  false,
+        command(event) {
+
+
+        },
+      },
+
+      {
         label:"Aluno",
-        icon: "pi pi-fw pi-user"
+        icon: "pi pi-fw pi-user",
+        routerLink: ['user']
     }
     ];
+
+  }
+
+  teste1(){
+    console.log("funfoou")
+  }
+
+  insereDisciplina(idDisciplina: string = '1', nomeDisciplina: string = 'calculo 2' ){
+    console.log(event)
+    const newDisciplina = {
+
+        label: nomeDisciplina,
+        icon: 'pi pi-fw pi-bars',
+        styleClass: 'mt-3',
+        routerLink: ['disciplina',idDisciplina]
+    };
+    this.disciplinas.push(newDisciplina)
+
+
+
 
   }
 }

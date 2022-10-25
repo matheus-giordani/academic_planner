@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions, defineFullCalendarElement } from '@fullcalendar/web-component';
-import dayGridPlugin from '@fullcalendar/daygrid';
+
+
 import { LoginService } from '../login/login/login.service';
 
-defineFullCalendarElement();
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  logout(){
+  logout() {
     this.auth.logout()
   }
 

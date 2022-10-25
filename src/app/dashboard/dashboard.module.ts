@@ -17,6 +17,11 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 
+import { DisciplinaFormComponent } from './disciplina-form/disciplina-form.component';
+import { AssuntoFormComponent } from './assunto-form/assunto-form.component';
+import { DisciplinaCardComponent } from './disciplina-card/disciplina-card.component';
+import { PageUserComponent } from './page-user/page-user.component';
+
 
 
 @NgModule({
@@ -24,6 +29,10 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
     DashboardComponent,
     SideBarComponent,
     CalendarComponent,
+    DisciplinaFormComponent,
+    AssuntoFormComponent,
+    DisciplinaCardComponent,
+    PageUserComponent,
   ],
   imports: [
     CommonModule,
