@@ -12,7 +12,7 @@ export class DisciplinaCardComponent implements OnInit {
   protected disciplinaId: number
   ngOnInit(): void {
     this.disciplinaId = this.activatedRoute.snapshot.params["id"]
-    console.log(this.disciplinaId)
+
 
   }
 
