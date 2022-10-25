@@ -22,3 +22,22 @@
 * {
   font-family: saira regular;
 }
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+app-dashboard {
+  display: block;
+  height: 100%;
+}
+
+.container-fluid {
+  height: 100%;
+}
