@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,15 @@ export class LoginService {
     this.router.navigate([''])
     // return this.toastr.success('Hello world!', 'Toastr fun!');
     return
+  }
+
+
+  public isAutenticated(): boolean{
+    const token = localStorage.getItem('access_token')
+    if(!token) return false
+    const jwtHelper = new JwtHelperService()
+    return !jwtHelper.isTokenExpired(token)
+
+
   }
 }
