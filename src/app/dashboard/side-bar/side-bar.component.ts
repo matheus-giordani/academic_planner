@@ -43,21 +43,25 @@ export class SideBarComponent {
       {
         label: 'Meu Calendário',
         icon: 'pi pi-fw pi-calendar',
+        routerLink: ['calendario']
       },
       {
         label: 'Inserir Disciplina',
         icon: 'pi pi-fw pi-book',
         styleClass: 'mt-3',
+        routerLink: ['disciplina']
       },
       {
         label: 'Adicionar Assunto',
         icon: 'pi pi-fw pi-bookmark',
         styleClass: 'mt-3',
+        routerLink: ['assunto']
       },
       {
         label: 'ToDo List',
         icon: 'pi pi-fw pi-check-square',
         styleClass: 'mt-3',
+        routerLink: ['ToDo']
       },
       {
         label: 'Disciplinas',
@@ -67,16 +71,6 @@ export class SideBarComponent {
         items: this.disciplinas,
       },
       {separator:true},
-      {
-        label:"insere",
-        icon: "pi pi-fw pi-user",
-        escape:  false,
-        command(event) {
-
-
-        },
-      },
-
       {
         label:"Aluno",
         icon: "pi pi-fw pi-user",

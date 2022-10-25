@@ -21,6 +21,7 @@ import { DisciplinaFormComponent } from './disciplina-form/disciplina-form.compo
 import { AssuntoFormComponent } from './assunto-form/assunto-form.component';
 import { DisciplinaCardComponent } from './disciplina-card/disciplina-card.component';
 import { PageUserComponent } from './page-user/page-user.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 
 
@@ -33,6 +34,7 @@ import { PageUserComponent } from './page-user/page-user.component';
     AssuntoFormComponent,
     DisciplinaCardComponent,
     PageUserComponent,
+    ToDoListComponent,
   ],
   imports: [
     CommonModule,
