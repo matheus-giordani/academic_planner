@@ -80,9 +80,7 @@ export class SideBarComponent {
 
   }
 
-  teste1() {
-
-  }
+ 
 
   insereDisciplina(idDisciplina: string = '1', nomeDisciplina: string = 'calculo 2') {
 
