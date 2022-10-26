@@ -43,7 +43,7 @@ export class SideBarComponent {
       {
         label: 'Meu Calendário',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: ['..','']
+        routerLink: ['']
       },
       {
         label: 'Inserir Disciplina',
