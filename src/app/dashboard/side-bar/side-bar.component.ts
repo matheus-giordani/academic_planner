@@ -60,14 +60,14 @@ export class SideBarComponent {
       {
         label: 'ToDo List',
         icon: 'pi pi-fw pi-check-square',
-        styleClass: '',
+        styleClass: 'mt-3',
         routerLink: ['ToDo']
       },
       {
         label: 'Disciplinas',
         icon: 'pi pi-fw pi-check-square',
         styleClass: 'mt-3 ',
-        style: {"min-height":"50vh" },
+        style: {"min-height":"63vh" },
         items: this.disciplinas,
       },
       { separator: true },
