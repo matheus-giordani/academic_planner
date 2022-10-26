@@ -43,7 +43,7 @@ export class SideBarComponent {
       {
         label: 'Meu Calendário',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: ['calendario']
+        routerLink: ['..','']
       },
       {
         label: 'Inserir Disciplina',
@@ -80,7 +80,7 @@ export class SideBarComponent {
 
   }
 
- 
+
 
   insereDisciplina(idDisciplina: string = '1', nomeDisciplina: string = 'calculo 2') {
 

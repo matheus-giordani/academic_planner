@@ -13,9 +13,9 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 const routes: Routes = [
   {path:'', component: DashboardComponent,
   children: [
-    
 
-    {path:'calendario', component: CalendarComponent},
+
+    {path:'', component: CalendarComponent},
     {path:'disciplina', component: DisciplinaFormComponent},
     {path:'assunto', component: AssuntoFormComponent},
     {path:'user', component: PageUserComponent},

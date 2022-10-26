@@ -41,3 +41,6 @@ app-dashboard {
 .container-fluid {
   height: 100%;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

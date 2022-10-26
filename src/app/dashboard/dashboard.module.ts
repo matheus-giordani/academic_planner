@@ -22,6 +22,7 @@ import { AssuntoFormComponent } from './assunto-form/assunto-form.component';
 import { DisciplinaCardComponent } from './disciplina-card/disciplina-card.component';
 import { PageUserComponent } from './page-user/page-user.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import {NgbdModalContent } from './calendar/modal/modal.component';
 
 
 
@@ -35,6 +36,8 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     DisciplinaCardComponent,
     PageUserComponent,
     ToDoListComponent,
+    NgbdModalContent,
+
   ],
   imports: [
     CommonModule,

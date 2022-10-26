@@ -11,6 +11,9 @@ import { ButtonModule } from 'primeng/button';
 import { Error404Component } from './error404/error404.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { LoginService } from './login/login/login.service';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -31,7 +34,12 @@ import { LoginService } from './login/login/login.service';
     TieredMenuModule,
     ButtonModule,
     HttpClientModule,
-    ToastrModule
+    ToastrModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    NgbModule
 
 
 
