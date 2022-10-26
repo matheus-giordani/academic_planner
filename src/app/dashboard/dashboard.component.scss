@@ -16,10 +16,6 @@
   margin: 20px;
 }
 
-.logout {
-  margin-right: 20px;
-}
-
 .btn-sair {
   display: flex;
   font-size: 20px;
@@ -29,4 +25,8 @@
   justify-content: center;
 }
 
+.container-fluid {
+  min-height: 100%;
+  position: absolute;
+}
 
