@@ -21,21 +21,27 @@ export class SideBarComponent {
 
     this.disciplinas = [
       {
+        id:'1',
         label: 'Programação 1',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
+        routerLink: ['disciplina','1'],
       },
       {
-        id: '1',
+        id: '2',
         label: 'Álgebra Linear',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
+        routerLink: ['disciplina','2'],
+
 
       },
       {
+        id:'3',
         label: 'Banco de Dados',
         icon: 'pi pi-fw pi-bars',
         styleClass: 'mt-3',
+        routerLink: ['disciplina','3'],
       },
     ];
 
