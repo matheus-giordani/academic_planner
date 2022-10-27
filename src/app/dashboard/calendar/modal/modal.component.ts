@@ -15,6 +15,6 @@ export class NgbdModalContent implements OnInit {
 
   ngOnInit(){
     console.log(this.dayClicked.getDate())
-
+    console.log(this.calendarEvents)
   }
 }

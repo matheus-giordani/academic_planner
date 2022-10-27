@@ -30,7 +30,7 @@ export class CalendarComponent implements OnInit {
     {
       start: new Date("2022-10-25T13:30:00.000Z"),
       end: new Date("2022-10-25T14:00:00.000Z"),
-      title: "A 3 day event",
+      title: "The Huxley - Lista 01",
       color: {
         primary: "#ad2121",
         secondary: "#FAE3E3"
@@ -59,17 +59,22 @@ export class CalendarComponent implements OnInit {
     },
     {
       start: startOfDay(new Date()),
-      title: 'An event with no end date',
+      title: 'Vetores',
+      resizable: {
+        "beforeStart": true,
+        "afterEnd": true
+      },
+      draggable: true
     },
     {
       start: startOfDay(new Date()),
-      title: 'An event with no end date',
+      title: 'Modelagem de dados',
+      resizable: {
+        "beforeStart": true,
+        "afterEnd": true
+      },
+      draggable: true
     },
-    {
-      title: "teste",
-      start: new Date('2022-10-29')
-    }
-
   ]
   constructor(protected modalService: NgbModal) { }
 
