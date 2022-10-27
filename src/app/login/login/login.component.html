@@ -22,8 +22,8 @@
                   <input type="password" formControlName="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 </div>
                 <div class="link-redefinir">
-                  <a href="">Esqueci minha senha</a><br>
-                  <a [routerLink]="'register'" href="">Não tenho cadastro</a>
+                  <a routerLink="recover">Esqueci minha senha</a><br>
+                  <a routerLink="register" href="">Não tenho cadastro</a>
                 </div>
                 <div class="mb-4">
                   <button type="submit" on  class="btn btn-primary btn-login" [disabled]="formAuth.invalid">Login</button>
