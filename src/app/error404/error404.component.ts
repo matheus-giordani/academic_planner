@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap'
 
 @Component({
   selector: 'app-error404',
