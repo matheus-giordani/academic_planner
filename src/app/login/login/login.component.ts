@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     if (this.formAuth.valid) {
-      this.auth.sign({ email: this.formAuth.value.email, senha: this.formAuth.value.senha }).subscribe(
+      this.auth.sign({ email: this.formAuth.value.email, password: this.formAuth.value.senha }).subscribe(
         {
           next: res => res,
           error: err => this.endpointMessageError = err

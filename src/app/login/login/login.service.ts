@@ -9,19 +9,21 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class LoginService {
+  baseUrl = 'https://academic-planner-api.herokuapp.com/'
 
-  private endpointJWT: string = 'http://localhost:3000/sign'
+  private endpointJWT: string = 'https://serene-scrubland-02002.herokuapp.com/sign'
 
   constructor(private httpClient: HttpClient, private router: Router,
 
   ) { }
 
-  sign(res: { email: string, senha: string }): Observable<any> {
+  sign(res: { email: string, password: string }): Observable<any> {
 
-    return this.httpClient.post<{ token: string }>(this.endpointJWT, res).pipe(
+    return this.httpClient.post<{auth_token:string}>(this.baseUrl+'sessions', res).pipe(
       map(data => {
+        console.log(data)
         localStorage.removeItem('access_token')
-        localStorage.setItem('access_token', data.token)
+        localStorage.setItem('access_token', data.auth_token)
         return this.router.navigate(['dashboard'])
 
       }),
