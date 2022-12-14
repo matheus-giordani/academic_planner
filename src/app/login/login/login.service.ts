@@ -17,12 +17,13 @@ export class LoginService {
 
   ) { }
 
-  sign(res: { email: string, senha: string }): Observable<any> {
+  sign(res: { email: string, password: string }): Observable<any> {
 
-    return this.httpClient.post<any>(this.baseUrl+'sessions', res).pipe(
+    return this.httpClient.post<{auth_token:string}>(this.baseUrl+'sessions', res).pipe(
       map(data => {
+        console.log(data)
         localStorage.removeItem('access_token')
-        localStorage.setItem('access_token', data.token)
+        localStorage.setItem('access_token', data.auth_token)
         return this.router.navigate(['dashboard'])
 
       }),

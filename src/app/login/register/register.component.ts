@@ -38,7 +38,8 @@ export class RegisterComponent implements OnInit {
       this.registerService.cadastroUsuario(dadosCadastro).subscribe({
         next: (v) => {
           console.log(v)
-          this.router.navigate(['dashboard']);
+          this.toastr.success('Usuario cadastrado','Sucesso')
+          this.router.navigate(['/']);
         },
         error: (e: HttpErrorResponse) => {
           console.log(e);
