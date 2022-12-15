@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -23,6 +23,8 @@ import { DisciplinaCardComponent } from './disciplina-card/disciplina-card.compo
 import { PageUserComponent } from './page-user/page-user.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import {NgbdModalContent } from './calendar/modal/modal.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 
@@ -44,7 +46,12 @@ import {NgbdModalContent } from './calendar/modal/modal.component';
     DashboardRoutingModule,
     TieredMenuModule,
     ButtonModule,
+    NgxSpinnerModule,
+
+    ReactiveFormsModule,
     FormsModule,
+
+
     NgbModalModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({

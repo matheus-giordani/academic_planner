@@ -6,10 +6,8 @@
   <div class="col-md-3">
     <label for="inputDisciplina" class="form-label">Disciplina</label>
     <select class="form-select" aria-label="Default select example">
-      <option selected>Selecione uma opção</option>
-      <option value="1">Álgebra Linear</option>
-      <option value="2">Programação 1</option>
-      <option value="3">Banco de Dados</option>
+      <option *ngFor="let disciplina of listaDisciplinas" [value]="disciplina.id_disciplina">{{disciplina.name}}</option>
+
     </select>
   </div>
   <div class="col-md-2">
@@ -20,4 +18,5 @@
     <button type="submit" class="btn btn-primary mt-3">Cadastrar assunto</button>
   </div>
 </form>
+<ngx-spinner type="ball-scale-multiple" [fullScreen]="false"></ngx-spinner>
 

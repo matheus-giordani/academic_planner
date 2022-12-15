@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   endpointMessageError: string
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private auth: LoginService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder, private auth: LoginService, private toast: ToastrService) { }
   formAuth: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
     senha: [null, [Validators.required]]
@@ -34,12 +35,15 @@ export class LoginComponent implements OnInit {
       this.auth.sign({ email: this.formAuth.value.email, password: this.formAuth.value.senha }).subscribe(
         {
           next: res => res,
-          error: err => this.endpointMessageError = err
-        });
+          error: err => {
+            this.toast.error(err.error.status,"error")
+
     }
 
+  })
 
   }
+}
 }
 
 

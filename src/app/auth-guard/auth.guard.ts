@@ -14,14 +14,12 @@ export class AuthGuard implements CanActivateChild {
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(!this.loginService.isAutenticated()){
-      this.router.navigate([''])
-      console.log('entrou no guard')
+      this.loginService.logout()
       return false
 
     }
 
-
-      // this.router.navigate(['dashboard'])
+    
       return true;
 
 

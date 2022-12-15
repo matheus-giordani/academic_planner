@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, tap, throwError } from 'rxjs';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -20,18 +20,12 @@ export class LoginService {
   sign(res: { email: string, password: string }): Observable<any> {
 
     return this.httpClient.post<{auth_token:string}>(this.baseUrl+'sessions', res).pipe(
-      map(data => {
+      tap(data => {
         console.log(data)
         localStorage.removeItem('access_token')
         localStorage.setItem('access_token', data.auth_token)
         return this.router.navigate(['dashboard'])
 
-      }),
-      catchError(err => {
-
-        if (err.error.message) return throwError(() => err.error.message)
-
-        return throwError(() => 'erro no servidor')
       })
     )
   }
@@ -51,5 +45,9 @@ export class LoginService {
     return !jwtHelper.isTokenExpired(token)
 
 
+  }
+
+  dadosUsuario(){
+    
   }
 }

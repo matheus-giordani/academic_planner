@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import {TieredMenuModule} from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
@@ -28,6 +29,8 @@ import { RequestInterceptor } from './request-interceptor.service';
     Error404Component,
 
   ],
+  exports: [NgxSpinnerModule]
+  ,
   imports: [
     CommonModule,
     BrowserModule,
@@ -38,6 +41,8 @@ import { RequestInterceptor } from './request-interceptor.service';
     ButtonModule,
     HttpClientModule,
     ToastrModule,
+    ReactiveFormsModule,
+    NgxSpinnerModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
