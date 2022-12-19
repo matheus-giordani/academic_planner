@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoginReturn } from './login.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,14 @@ export class LoginService {
 
   sign(res: { email: string, password: string }): Observable<any> {
 
-    return this.httpClient.post<{auth_token:string}>(this.baseUrl+'sessions', res).pipe(
+    return this.httpClient.post<LoginReturn>(this.baseUrl+'sessions', res).pipe(
       tap(data => {
         console.log(data)
         localStorage.removeItem('access_token')
+        localStorage.removeItem('id_user')
         localStorage.setItem('access_token', data.auth_token)
+        localStorage.setItem('id_user', (data.id).toString())
+
         return this.router.navigate(['dashboard'])
 
       })
@@ -48,6 +52,6 @@ export class LoginService {
   }
 
   dadosUsuario(){
-    
+
   }
 }
