@@ -1,22 +1,47 @@
-<form class="row g-3">
+<form class="row g-3" [formGroup]="formAssunto" (ngSubmit)="submit()">
   <div class="col-md-5">
     <label for="inputAssunto" class="form-label">Assunto</label>
-    <input type="text" class="form-control" id="inputAssunto">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      id="inputAssunto"
+    />
   </div>
   <div class="col-md-3">
     <label for="inputDisciplina" class="form-label">Disciplina</label>
-    <select class="form-select" aria-label="Default select example">
-      <option *ngFor="let disciplina of listaDisciplinas" [value]="disciplina.id_disciplina">{{disciplina.name}}</option>
-
+    <select
+      class="form-select"
+      formControlName="subject_id"
+      aria-label="Default select example"
+      
+    >
+      <option
+        *ngFor="let disciplina of listaDisciplinas"
+        [value]="disciplina.id_disciplina"
+      >
+        {{ disciplina.name }}
+      </option>
     </select>
   </div>
   <div class="col-md-2">
     <label for="inputHora" class="form-label">Horas de Estudo</label>
-    <input type="number" class="form-control" id="inputHora">
+    <input
+      type="number"
+      class="form-control"
+      min="0"
+      formControlName="study_hours"
+      id="inputHora"
+    />
   </div>
   <div class="col-12">
-    <button type="submit" class="btn btn-primary mt-3">Cadastrar assunto</button>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3"
+      [disabled]="this.formAssunto.invalid"
+    >
+      Cadastrar assunto
+    </button>
   </div>
 </form>
 <ngx-spinner type="ball-scale-multiple" [fullScreen]="false"></ngx-spinner>
-

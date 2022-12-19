@@ -1,0 +1,46 @@
+{
+  "disciplinas": [
+    {
+      "id": 1,
+      "nome": "Programação",
+      "assuntos": [
+        {
+          "id": 11,
+          "nome": "lista 1"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Banco de dados",
+      "assuntos": [
+        {
+          "id": 14,
+          "nome": "lista 1-2 "
+        },
+        {
+          "id": 256,
+          "nome": "lista 2-0 "
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "PAA",
+      "assuntos": [
+        {
+          "id": 122,
+          "nome": "lista 1"
+        },
+        {
+          "id": 134,
+          "nome": "lista 2"
+        },
+        {
+          "id": 11,
+          "nome": "lista 3"
+        }
+      ]
+    }
+  ]
+}

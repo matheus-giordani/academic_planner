@@ -24,9 +24,9 @@ export class LoginService {
       tap(data => {
         console.log(data)
         localStorage.removeItem('access_token')
-        localStorage.removeItem('id_user')
+        localStorage.removeItem('user_id')
         localStorage.setItem('access_token', data.auth_token)
-        localStorage.setItem('id_user', (data.id).toString())
+        localStorage.setItem('user_id', (data.id).toString())
 
         return this.router.navigate(['dashboard'])
 

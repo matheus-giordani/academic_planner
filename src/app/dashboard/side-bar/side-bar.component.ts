@@ -3,6 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
+interface SideBarDisciplina {
+  id:string,
+  label: string,
+  icon: string,
+  styleClass: string,
+  routerLink: string[],
+
+}
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',

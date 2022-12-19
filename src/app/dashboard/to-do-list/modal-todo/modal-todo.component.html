@@ -1,0 +1,55 @@
+
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar assunto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-5">
+            <label for="inputAssunto" class="form-label">Assunto</label>
+            <input type="text" class="form-control" id="inputAssunto">
+          </div>
+          <div class="col-4">
+            <label for="inputDisciplina" class="form-label">Disciplina</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Selecione uma opção</option>
+              <option value="1">Álgebra Linear</option>
+              <option value="2">Programação 1</option>
+              <option value="3">Banco de Dados</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="inputHora" class="form-label">Horas de Estudo</label>
+            <input type="number" class="form-control" id="inputHora">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade " id="static2Backdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir assunto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Você tem certeza que deseja excluir assunto?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>
+

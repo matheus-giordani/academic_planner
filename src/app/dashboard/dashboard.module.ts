@@ -24,6 +24,7 @@ import { PageUserComponent } from './page-user/page-user.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import {NgbdModalContent } from './calendar/modal/modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component';
 
 
 
@@ -39,6 +40,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     PageUserComponent,
     ToDoListComponent,
     NgbdModalContent,
+    ModalTodoComponent,
 
   ],
   imports: [
