@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
@@ -22,12 +22,11 @@ import { AssuntoFormComponent } from './assunto-form/assunto-form.component';
 import { DisciplinaCardComponent } from './disciplina-card/disciplina-card.component';
 import { PageUserComponent } from './page-user/page-user.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
-import {NgbdModalContent } from './calendar/modal/modal.component';
+import { NgbdModalContent } from './calendar/modal/modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component';
-
-
-
+import { DialogModule } from 'primeng/dialog';
+import { ModalDeleteComponent } from './to-do-list/modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,7 @@ import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component
     ToDoListComponent,
     NgbdModalContent,
     ModalTodoComponent,
-
+    ModalDeleteComponent,
   ],
   imports: [
     CommonModule,
@@ -49,10 +48,10 @@ import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component
     TieredMenuModule,
     ButtonModule,
     NgxSpinnerModule,
+    DialogModule,
 
     ReactiveFormsModule,
     FormsModule,
-
 
     NgbModalModule,
     FlatpickrModule.forRoot(),
@@ -60,10 +59,7 @@ import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-
-
-
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DashboardModule { }
+export class DashboardModule {}

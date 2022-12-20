@@ -14,7 +14,7 @@
       class="form-select"
       formControlName="subject_id"
       aria-label="Default select example"
-      
+
     >
       <option
         *ngFor="let disciplina of listaDisciplinas"
@@ -40,7 +40,7 @@
       class="btn btn-primary mt-3"
       [disabled]="this.formAssunto.invalid"
     >
-      Cadastrar assunto
+      {{buttonName}}
     </button>
   </div>
 </form>

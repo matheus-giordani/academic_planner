@@ -2,13 +2,14 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { DisciplinaService } from '../disciplina-form/disciplina.service';
 
-interface SideBarDisciplina {
+export interface SideBarDisciplina {
   id:string,
   label: string,
   icon: string,
   styleClass: string,
-  routerLink: string[],
+  routerLink: (string | number)[],
 
 }
 
@@ -18,7 +19,7 @@ interface SideBarDisciplina {
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, public disciplinaService: DisciplinaService) { }
 
   items: MenuItem[];
   disciplinas: MenuItem[];
@@ -26,72 +27,52 @@ export class SideBarComponent {
 
 
   ngOnInit() {
+    this.disciplinaService.sideBarDisciplinas.subscribe(el=>{
+      this.items = [
+        {
+          label: 'Meu Calendário',
+          icon: 'pi pi-fw pi-calendar',
+          routerLink: ['']
+        },
+        {
+          label: 'Inserir Disciplina',
+          icon: 'pi pi-fw pi-book',
+          styleClass: 'mt-3',
+          routerLink: ['disciplina']
+        },
+        {
+          label: 'Adicionar Assunto',
+          icon: 'pi pi-fw pi-bookmark',
+          styleClass: 'mt-3',
+          routerLink: ['assunto']
+        },
+        {
+          label: 'ToDo List',
+          icon: 'pi pi-fw pi-check-square',
+          styleClass: 'mt-3',
+          routerLink: ['ToDo']
+        },
+        {
+          label: 'Disciplinas',
+          icon: 'pi pi-fw pi-check-square',
+          styleClass: 'mt-3 ',
+          style: {"min-height":"63vh" },
+          items: el ,
+        },
+        { separator: true },
+        {
+          label: "Aluno",
+          icon: "pi pi-fw pi-user",
+          routerLink: ['user']
+        }
+      ];
 
 
-    this.disciplinas = [
-      {
-        id:'1',
-        label: 'Programação 1',
-        icon: 'pi pi-fw pi-bars',
-        styleClass: 'mt-3',
-        routerLink: ['disciplina','1'],
-      },
-      {
-        id: '2',
-        label: 'Álgebra Linear',
-        icon: 'pi pi-fw pi-bars',
-        styleClass: 'mt-3',
-        routerLink: ['disciplina','2'],
+    })
 
 
-      },
-      {
-        id:'3',
-        label: 'Banco de Dados',
-        icon: 'pi pi-fw pi-bars',
-        styleClass: 'mt-3',
-        routerLink: ['disciplina','3'],
-      },
-    ];
 
-    this.items = [
-      {
-        label: 'Meu Calendário',
-        icon: 'pi pi-fw pi-calendar',
-        routerLink: ['']
-      },
-      {
-        label: 'Inserir Disciplina',
-        icon: 'pi pi-fw pi-book',
-        styleClass: 'mt-3',
-        routerLink: ['disciplina']
-      },
-      {
-        label: 'Adicionar Assunto',
-        icon: 'pi pi-fw pi-bookmark',
-        styleClass: 'mt-3',
-        routerLink: ['assunto']
-      },
-      {
-        label: 'ToDo List',
-        icon: 'pi pi-fw pi-check-square',
-        styleClass: 'mt-3',
-        routerLink: ['ToDo']
-      },
-      {
-        label: 'Disciplinas',
-        icon: 'pi pi-fw pi-check-square',
-        styleClass: 'mt-3 ',
-        style: {"min-height":"63vh" },
-        items: this.disciplinas,
-      },
-      { separator: true },
-      {
-        label: "Aluno",
-        icon: "pi pi-fw pi-user",
-        routerLink: ['user']
-      }
-    ];
+
 
   }
 

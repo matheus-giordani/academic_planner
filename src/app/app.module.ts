@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { NgxSpinnerModule } from "ngx-spinner";
+import {DialogModule} from 'primeng/dialog';
 
 import {TieredMenuModule} from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
@@ -38,6 +39,7 @@ import { RequestInterceptor } from './request-interceptor.service';
     AppRoutingModule,
     FormsModule,
     TieredMenuModule,
+    DialogModule,
     ButtonModule,
     HttpClientModule,
     ToastrModule,

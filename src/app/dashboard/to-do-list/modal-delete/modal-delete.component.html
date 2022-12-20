@@ -1,0 +1,18 @@
+<p-dialog
+  header="Excluir Assunto"
+  position="top"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '50vw' }"
+  [(visible)]="display"
+>
+  Você tem certeza que deseja excluir assunto?
+
+  <ng-template pTemplate="footer">
+    <button type="button" class="btn btn-secondary" (click)="hideDialog()">
+      Não
+    </button>
+    <button type="button" class="btn btn-primary" (click)="deleteAssunto()">
+      Sim
+    </button>
+  </ng-template>
+</p-dialog>

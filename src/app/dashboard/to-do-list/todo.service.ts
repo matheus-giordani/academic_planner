@@ -13,4 +13,9 @@ export class TodoService {
   AssuntoToDisciplina(id: number): Observable<any>{
     return this.httpClient.get('http://localhost:3000/disciplinas/' + id )
   }
+
+  assuntoDelete(){
+    
+  }
+
 }
