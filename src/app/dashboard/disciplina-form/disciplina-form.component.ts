@@ -26,7 +26,7 @@ export class DisciplinaFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.buttonName =  this.id? 'Editar assunto' : 'Cadastrar assunto'
+    this.buttonName =  this.id? 'Editar disciplina' : 'Cadastrar disciplina'
     console.log(this.id)
     if(this.id){
       this.atualizaForm()
