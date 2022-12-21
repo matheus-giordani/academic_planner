@@ -1,3 +1,4 @@
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
 import {
   Component,
   ChangeDetectionStrategy,
@@ -29,60 +30,13 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   CalendarView = CalendarView;
 
-  events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      end: startOfDay(new Date()),
-      title: "The Huxley - Lista 01",
-      color: colors.yellow,
-      actions: [
-        {
-          label: "<i class=\"fas fa-fw fa-pencil-alt\"></i>",
-          a11yLabel: "Edit",
-          onClick({ event, sourceEvent, }) {
-            console.log(event,sourceEvent)
-
-          },
-        },
-        {
-          label: "<i class=\"fas fa-fw fa-trash-alt\"></i>",
-          a11yLabel: "Delete",
-          onClick({ event, sourceEvent, }) {
-
-          },
-        }
-      ],
-      resizable: {
-        "beforeStart": true,
-        "afterEnd": true
-      },
-      draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'Vetores',
-      resizable: {
-        "beforeStart": true,
-        "afterEnd": true
-      },
-      draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'Modelagem de dados',
-      resizable: {
-        "beforeStart": false,
-        "afterEnd": false
-      },
-      draggable: false,
-      color: colors.red
-    },
-  ]
-  constructor(protected modalService: NgbModal, private calendarService: CalendarService) { }
+  events: CalendarEvent[]
+  constructor(protected modalService: NgbModal, private calendarService: CalendarService,private spiner: NgxSpinnerService) { }
 
 
 
   ngOnInit() {
+    this.spiner.show()
     this.getRevisao()
   }
 
@@ -121,7 +75,25 @@ export class CalendarComponent implements OnInit {
   getRevisao(){
     this.calendarService.getRevisao().subscribe({
       next: (res)=>{
-        console.log(res)
+        this.events = res.map(el=>{
+          const event: CalendarEvent ={
+            start: startOfDay(new Date(el.date)),
+            title: el.topic_name,
+            resizable: {
+              "beforeStart": false,
+              "afterEnd": false
+            },
+            draggable: false,
+            color: colors.red
+          }
+          return event
+        })
+
+      },
+      complete: ()=>{
+        console.log(this.events)
+        this.refresh.next()
+        this.spiner.hide()
       }
     })
   }

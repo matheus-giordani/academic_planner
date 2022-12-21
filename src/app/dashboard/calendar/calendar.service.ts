@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Revisao } from './revisao.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class CalendarService {
   constructor(private http:HttpClient) { }
 
 
-  getRevisao(): Observable<any>{
-    return this.http.get(this.baseUrl + 'notifications')
+  getRevisao(): Observable<Revisao[]>{
+    return this.http.get<Revisao[]>(this.baseUrl + 'notifications')
 
   }
 }
