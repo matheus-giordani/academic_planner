@@ -9,13 +9,13 @@
           <a style="color: #0d6efd" (click)="modalEditDisciplina.showDialog(disciplinaObject.id)">
             <i class="pi pi-pencil"></i>
           </a>
-          <app-modal-edit #modalEditDisciplina></app-modal-edit>
+          <app-modal-edit-disciplina #modalEditDisciplina></app-modal-edit-disciplina>
         </div>
         <div class="col-auto">
-          <a style="color: #dc3545" >
+          <a style="color: #dc3545" (click)="modalDeleteDisciplina.showDialog(disciplinaObject.id)" >
             <i class="pi pi-trash"></i>
           </a>
-          <app-modal-delete #modalDeleteDisciplina></app-modal-delete>
+          <app-modal-delete-disciplina #modalDeleteDisciplina ></app-modal-delete-disciplina>
         </div>
       </div>
     </div>
@@ -43,11 +43,11 @@
   </div>
   <div class="row nv">
     <div class="col-auto p-0 icon">
-      <a href="#">
+      <a [routerLink]="['..','..','assunto']"  >
         <i class="pi pi-plus"></i>
       </a>
     </div>
-    <div class="col">Novo card</div>
+    <div class="col">Adicionar Assunto</div>
   </div>
 </div>
 <ngx-spinner type="ball-scale-multiple" [fullScreen]="false"></ngx-spinner>

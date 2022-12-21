@@ -11,6 +11,7 @@ import { startOfDay } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbdModalContent } from './modal/modal.component';
 import { colors } from './colors';
+import { CalendarService } from './calendar.service';
 
 
 @Component({
@@ -77,11 +78,12 @@ export class CalendarComponent implements OnInit {
       color: colors.red
     },
   ]
-  constructor(protected modalService: NgbModal) { }
+  constructor(protected modalService: NgbModal, private calendarService: CalendarService) { }
 
 
 
   ngOnInit() {
+    this.getRevisao()
   }
 
   setView(view: CalendarView) {
@@ -113,6 +115,15 @@ export class CalendarComponent implements OnInit {
     event.end = newEnd;
     this.refresh.next();
     console.log(event)
+  }
+
+
+  getRevisao(){
+    this.calendarService.getRevisao().subscribe({
+      next: (res)=>{
+        console.log(res)
+      }
+    })
   }
 
 

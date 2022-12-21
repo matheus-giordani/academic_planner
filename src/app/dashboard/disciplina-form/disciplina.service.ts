@@ -65,6 +65,9 @@ export class DisciplinaService {
   getDisciplinaId(id:number): Observable<Disciplina>{
     return this.httpClient.get<Disciplina>(this.baseUrl + 'subjects/' + id)
   }
+  deleteDisciplina(id:number): Observable<any>{
+    return this.httpClient.delete(this.baseUrl + 'subjects/' + id)
+  }
 
 
 }
