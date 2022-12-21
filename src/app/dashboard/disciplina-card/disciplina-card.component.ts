@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { id } from 'date-fns/locale';
+
+import { DisciplinaService } from '../disciplina-form/disciplina.service';
+import { DisciplinaAssuntos } from '../disciplina-form/disciplina.interface';
 
 
 
@@ -13,95 +16,39 @@ import { id } from 'date-fns/locale';
 
 
 
-export class DisciplinaCardComponent implements OnInit {
+export class DisciplinaCardComponent implements OnDestroy, OnInit {
 
-  fakeData = [
-    {
-      id: 1,
-      materia: 'Programação 1',
-      assuntos: [
-        {
-          idAssunto: 1,
-          nomeAssunto: 'The Huxley - Lista 01'
+
+  // fakeData
+  disciplinaObject: DisciplinaAssuntos
+  routerEvent: any
+
+
+
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private disciplinaService: DisciplinaService,private spinner: NgxSpinnerService) {
+
+  }
+  ngOnDestroy(): void {
+    this.routerEvent.unsubscribe()
+  }
+  protected disciplinaId: number
+  ngOnInit(): void {
+    this.spinner.show()
+    this.routerEvent =  this.activatedRoute.params.subscribe(idParam => {
+
+      this.disciplinaService.getDisciplinaAssunto(idParam['id']).subscribe({
+        next: (res)=>{
+          this.disciplinaObject = res
+
         },
-        {
-          idAssunto: 2,
-          nomeAssunto: 'The Huxley - Lista 02'
-        },
-        {
-          idAssunto: 3,
-          nomeAssunto: 'The Huxley - Lista 03'
-        },
-
-
-      ]
-
-
-    },
-    {
-      id: 2,
-      materia: 'Álgebra linear',
-      assuntos: [
-        {
-          idAssunto: 1,
-          nomeAssunto: 'Vetores'
-        },
-        {
-          idAssunto: 2,
-          nomeAssunto: 'Espaço Vetorial'
-        },
-        {
-          idAssunto: 3,
-          nomeAssunto: 'Espaço Vetorial - Lista 02'
-        },
-
-
-      ]
-
-
-    },
-    {
-      id: 3,
-      materia: 'Banco de Dados',
-      assuntos: [
-        {
-          idAssunto: 1,
-          nomeAssunto: 'Modelagem de Dados'
-        },
-        {
-          idAssunto: 2,
-          nomeAssunto: 'SGBD'
-        },
-        {
-          idAssunto: 3,
-          nomeAssunto: 'SQL'
-        },
-
-      ]
-
-
-    }
-
-  ]
-  disciplina: any
-  id: string
-  materia: string
-  assuntos: any
-
-
-
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    router.events.subscribe(event => {
-      this.disciplinaId = this.activatedRoute.snapshot.params["id"]
-      this.disciplina = this.fakeData.find(element => element.id == this.disciplinaId);
-      this.materia = this.disciplina.materia
-      this.assuntos = this.disciplina.assuntos
+        complete: ()=>{this.spinner.hide()}
+      })
 
 
     })
+
   }
-  protected disciplinaId: number
-  ngOnInit(): void { }
 
 
 

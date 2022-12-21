@@ -27,6 +27,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalTodoComponent } from './to-do-list/modal-todo/modal-todo.component';
 import { DialogModule } from 'primeng/dialog';
 import { ModalDeleteComponent } from './to-do-list/modal-delete/modal-delete.component';
+import { ModalEditComponent } from './disciplina-card/modal-edit/modal-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ModalDeleteComponent } from './to-do-list/modal-delete/modal-delete.com
     NgbdModalContent,
     ModalTodoComponent,
     ModalDeleteComponent,
+    ModalEditComponent,
   ],
   imports: [
     CommonModule,

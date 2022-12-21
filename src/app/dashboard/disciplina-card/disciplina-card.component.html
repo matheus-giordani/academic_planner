@@ -1,48 +1,44 @@
 <div class="container-fluid">
   <div class="card h-100">
-  <div class="card-header">
-    <div class="row">
-      <div class="col">
-        <h4>{{materia}}</h4>
-      </div>
-      <div class="col-auto">
-        <a data-bs-toggle="modal" data-bs-target="#static3Backdrop" style="color: #0d6efd">
-          <i class="pi pi-pencil"></i>
-        </a>
-      </div>
-      <div class="col-auto">
-        <a data-bs-toggle="modal" data-bs-target="#static2Backdrop" style="color: #dc3545">
-          <i class="pi pi-trash"></i>
-        </a>
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h4>{{ disciplinaObject?.name }}</h4>
+        </div>
+        <div class="col-auto">
+          <a style="color: #0d6efd" (click)="modalEditDisciplina.showDialog(disciplinaObject.id)">
+            <i class="pi pi-pencil"></i>
+          </a>
+          <app-modal-edit #modalEditDisciplina></app-modal-edit>
+        </div>
+        <div class="col-auto">
+          <a style="color: #dc3545" >
+            <i class="pi pi-trash"></i>
+          </a>
+          <app-modal-delete #modalDeleteDisciplina></app-modal-delete>
+        </div>
       </div>
     </div>
-    
-  </div>
-  <ul class="list-group list-group-flush">
-    <div *ngFor="let assunto of assuntos">
-      <li id="list" class="list-group-item">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <div class="row">
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let assunto of disciplinaObject?.topics">
+        <li id="list" class="list-group-item">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <div class="row">
               <div class="col">
                 <label class="form-check-label" for="flexCheckDefault">
-                  {{assunto.nomeAssunto}}
+                  {{ assunto.name }}
                 </label>
-              </div>
-              <div class="col-auto">
-                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="color: black">
-                  <i class="pi pi-pencil"></i>
-                </a>
-              </div>
-              <div class="col-auto">
-                <a data-bs-toggle="modal" data-bs-target="#static2Backdrop" style="color: black">
-                  <i class="pi pi-trash"></i>
-                </a>
               </div>
             </div>
           </div>
         </li>
-      </div> 
+      </div>
     </ul>
   </div>
   <div class="row nv">
@@ -51,104 +47,7 @@
         <i class="pi pi-plus"></i>
       </a>
     </div>
-    <div class="col">
-      Novo card
-    </div>
+    <div class="col">Novo card</div>
   </div>
 </div>
-
-<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar assunto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3">
-          <div class="col-5">
-            <label for="inputAssunto" class="form-label">Assunto</label>
-            <input type="text" class="form-control" id="inputAssunto">
-          </div>
-          <div class="col-4">
-            <label for="inputDisciplina" class="form-label">Disciplina</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Selecione uma opção</option>
-              <option value="1">Álgebra Linear</option>
-              <option value="2">Programação 1</option>
-              <option value="3">Banco de Dados</option>
-            </select>
-          </div>
-          <div class="col">
-            <label for="inputHora" class="form-label">Horas de Estudo</label>
-            <input type="number" class="form-control" id="inputHora">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade " id="static2Backdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir assunto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Você tem certeza que deseja excluir?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary">Sim</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade " id="static3Backdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar disciplina</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputDisciplina" class="form-label">Disciplina</label>
-            <input type="text" class="form-control" id="inputDisciplina">
-          </div>
-          <div class="col-md-3">
-            <label for="inputData" class="form-label">Data Início</label>
-            <input type="date" class="form-control" id="inputData">
-          </div>
-          <div class="col-md-3">
-            <label for="inputData" class="form-label">Data Início</label>
-            <input type="date" class="form-control" id="inputData">
-          </div>
-          <div class="col-3">
-            <label for="inputTurno" class="form-label">Turno</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Selecione uma opção</option>
-              <option value="1">Matutino</option>
-              <option value="2">Vespertino</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+<ngx-spinner type="ball-scale-multiple" [fullScreen]="false"></ngx-spinner>

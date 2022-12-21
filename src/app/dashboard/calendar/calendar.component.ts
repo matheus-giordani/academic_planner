@@ -10,6 +10,7 @@ import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarView } from 'ang
 import { startOfDay } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbdModalContent } from './modal/modal.component';
+import { colors } from './colors';
 
 
 @Component({
@@ -22,24 +23,23 @@ import { NgbdModalContent } from './modal/modal.component';
 
 
 export class CalendarComponent implements OnInit {
-  viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
+
+  viewDate: Date = new Date();
   CalendarView = CalendarView;
 
   events: CalendarEvent[] = [
     {
-      start: new Date("2022-10-25T13:30:00.000Z"),
-      end: new Date("2022-10-25T14:00:00.000Z"),
+      start: startOfDay(new Date()),
+      end: startOfDay(new Date()),
       title: "The Huxley - Lista 01",
-      color: {
-        primary: "#ad2121",
-        secondary: "#FAE3E3"
-      },
+      color: colors.yellow,
       actions: [
         {
           label: "<i class=\"fas fa-fw fa-pencil-alt\"></i>",
           a11yLabel: "Edit",
           onClick({ event, sourceEvent, }) {
+            console.log(event,sourceEvent)
 
           },
         },
@@ -70,10 +70,11 @@ export class CalendarComponent implements OnInit {
       start: startOfDay(new Date()),
       title: 'Modelagem de dados',
       resizable: {
-        "beforeStart": true,
-        "afterEnd": true
+        "beforeStart": false,
+        "afterEnd": false
       },
-      draggable: true
+      draggable: false,
+      color: colors.red
     },
   ]
   constructor(protected modalService: NgbModal) { }

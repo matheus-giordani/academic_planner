@@ -49,12 +49,22 @@ export class DisciplinaService {
     return this.httpClient.get<DisciplinaAssuntos[]>(this.baseUrl + 'todo')
 
   }
+  getDisciplinaAssunto(id:number){
+    return this.httpClient.get<DisciplinaAssuntos>(this.baseUrl + 'todo/' + id)
+  }
 
   getDisciplinasList():Observable<any>{
     return this.httpClient.get(this.baseUrl + 'subjects' )
 
   }
 
+  patchDisciplina(id:number, body:Disciplina): Observable<any>{
+    return this.httpClient.patch(this.baseUrl + 'subjects/' + id, body)
+  }
+
+  getDisciplinaId(id:number): Observable<Disciplina>{
+    return this.httpClient.get<Disciplina>(this.baseUrl + 'subjects/' + id)
+  }
 
 
 }
